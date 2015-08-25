@@ -1,0 +1,85 @@
+    <!DOCTYPE html>
+    <html ng-app="mylinkApp">
+      <head>
+        <title>Angular app (Task)</title>
+     
+        <meta charset="utf-8">
+        <!DOCTYPE html>
+    <html ng-app="mylinkApp">
+      <head>
+        <title>Angular app (Task)</title>
+     
+        <meta charset="utf-8">
+       
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/simple-sidebar.css" rel="stylesheet">
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/angular/angular-route.min.js">   </script> 
+        <script src="js/script.js"></script>
+        <script src="js/myController.js"></script>
+        <script src="js/aboutController.js"></script>
+        <script src="js/sitemapController.js"></script>
+
+      </head>
+
+      <!-- ####################################################################################################### -->
+
+      <body ng-controller="myController">
+        <div class="wrapper">
+          <header id="header" class="clear">
+          <h1><img src="../Code/img/logo.png" style="width:200px"; height="100px";/></h1>
+          </header>
+        </div>
+
+         <div id="wrapper">
+
+                <!-- Sidebar -->
+                  <div id="sidebar-wrapper">
+                      <ul class="sidebar-nav">
+                          <li class="sidebar-brand">
+                              <a href="">
+                                  Quick Links
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#">Home</a>
+                          </li>
+                          <li>
+                              <a href="#about">About</a>
+                          </li>
+                          <li>
+                              <a href="#siteMap">SiteMap</a>
+                          </li>
+
+                       </ul>
+                  </div>
+          <div id="page-content-wrapper">
+                      <div class="container-fluid">
+                          <div >
+                               <div ng-view class="jumbotron text-center" style="height:475px";></div>
+                          </div>
+                      </div>
+                  </div>
+                
+
+            </div>
+     
+      <!-- ####################################################################################################### -->
+
+      <div id="wrapper">
+        <footer id="footer" class="clear">
+          
+           <p style="text-align:center">Copyright &copy; 2015 - All Rights Reserved</p>
+         
+        </footer>
+      </div>
+      </body>
+    </html>
+
+
+
+
+       
+
+
+            
