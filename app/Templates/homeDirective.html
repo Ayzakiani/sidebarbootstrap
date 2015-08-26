@@ -1,0 +1,52 @@
+
+<form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="inputName1" class="col-sm-2 control-label">First Name:</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="inputName1"  type="name" placeholder="john" 
+          pattern="[A-Za-z0-9\s]{4,12}" required="Please fill the first name">
+            
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputName2" class="col-sm-2 control-label">Last Name:</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="inputName2" type="name"
+          placeholder="smith"  pattern="[A-Za-z0-9\s]{4,12}" required>
+             
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="inputuserName3" class="col-sm-2 control-label">User Name:</label>
+        <div class="col-sm-4">
+          <input class="form-control"  type="name" id="inputuserName3" placeholder="JhonSmith"  required>
+         
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail4" class="col-sm-2 control-label">Email:</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="inputEmail4" type="Email" placeholder="example@dummy.com"  
+          pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>
+          
+        
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword5" class="col-sm-2 control-label">Password:</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="inputPassword5" type="password" placeholder="Password"  name="password" 
+           required="required" />
+           
+        </div>
+      </div>
+      <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success" ng-click="saveData()" style="margin-right:260px;">
+       <span class="glyphicon glyphicon-flash"></span> Submit!</button>
+    
+  </div>
+ 
+</form>

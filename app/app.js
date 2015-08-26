@@ -10,26 +10,19 @@ app.config(['$routeProvider',
 
       // route for the home page
          .when('/', {
-                templateUrl : '../Code/HtmlFiles/home.html',
-                controller  : 'myController'
+                templateUrl : '../app/HtmlFiles/home.html'
+               
             })
 
             // route for the about page
             .when('/about', {
-                templateUrl : '../Code/HtmlFiles/about.html',
-                controller  : 'aboutController'
+                templateUrl : '../app/HtmlFiles/about.html'
+                // controller  : 'aboutController'
             })
 
             // route for sitemap page
             .when('/siteMap', {
-                templateUrl :   '../Code/HtmlFiles/siteMap.html',
-                controller  : 'sitemapController'
+                templateUrl :   '../app/HtmlFiles/siteMap.html'
+                // controller  : 'sitemapController'
             });
     }]);
-
-
-
-
-    
-
-   
