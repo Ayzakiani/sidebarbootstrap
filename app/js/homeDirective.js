@@ -5,7 +5,8 @@ angular.module("mylinkApp", [])
 
   var directive = {};
   	
-     directive.templateUrl = "../Template/homeDirective.html";
+     directive.templateUrl = "../Templates/homeDirective.html"
+   
      directive.controller = function()
      {
 alert("hbkjhb");
