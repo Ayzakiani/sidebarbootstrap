@@ -1,8 +1,8 @@
 (function () {
     angular.module('mylinkApp')
-        .directive('mlHome', function () {
+        .directive('mlAbout', function () {
             return {
-                templateUrl: '../app/templates/mlHomeDirective.html',
+                templateUrl: '../app/templates/mlAboutDirective.html',
                 // controller: ['$scope', function () {
                     
                 // }]
