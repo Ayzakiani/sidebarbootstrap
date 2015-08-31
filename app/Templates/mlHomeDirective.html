@@ -1,43 +1,59 @@
-<form class="form-horizontal" role="form"  ng-submit="submitForm()" ng-controller="FormController">
-      <div class="form-group">
-        <label for="inputName1" class="col-sm-2 control-label">First Name:</label>
-        <div class="col-sm-4">
-          <input class="form-control" id="inputName1"  type="name" ng-model="FormController.Firstname"  placeholder="john" 
-          pattern="[A-Za-z0-9\s]{4,12}" required="Please fill the first name">
+  <form  name="myForm" class="form-horizontal" role="form"  ng-controller="FormController">
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">First Name:</label>
+          <div class="col-sm-4">
+            <input class="form-control" id="Firstname"  type="name" ng-model="userInfo.Firstname"  placeholder="john" 
+            pattern="[A-Za-z0-9\s]{4,12}" required="Please fill the first name">
+          </div>
+
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputName2" class="col-sm-2 control-label">Last Name:</label>
-        <div class="col-sm-4">
-          <input class="form-control" id="inputName2" type="name" ng-model="FormController.Lastname"
-          placeholder="smith"  pattern="[A-Za-z0-9\s]{4,12}" required>
+        <div class="form-group">
+          <label  class="col-sm-2 control-label">Last Name:</label>
+          <div class="col-sm-4">
+            <input class="form-control" id="inputName2" type="name" ng-model="userInfo.Lastname"
+            placeholder="smith"  pattern="[A-Za-z0-9\s]{4,12}" required>
+          </div>
+
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputuserName3" class="col-sm-2 control-label">User Name:</label>
-        <div class="col-sm-4">
-          <input class="form-control"  type="name" ng-model="FormController.Username"
-            id="inputuserName3" placeholder="JhonSmith"  required>
+        <div class="form-group">
+          <label  class="col-sm-2 control-label">User Name:</label>
+          <div class="col-sm-4">
+            <input class="form-control"  type="name" ng-model="userInfo.Username"
+              id="inputuserName3" placeholder="JohnSmith"  required>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputEmail4" class="col-sm-2 control-label">Email:</label>
-        <div class="col-sm-4">
-          <input class="form-control" id="inputEmail4" type="Email" ng-model="FormController.Email"
-          placeholder="example@dummy.com" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>      
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Email:</label>
+          <div class="col-sm-4">
+            <input class="form-control" id="inputEmail4" type="Email" ng-model="userInfo.Email"
+            placeholder="example@dummy.com" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>   
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputPassword5" class="col-sm-2 control-label">Password:</label>
-        <div class="col-sm-4">
-          <input class="form-control" id="inputPassword5" type="password" ng-model="FormController.Password"
-          placeholder="Password"  name="password" 
-           required="required" />   
+        
+  
+
+        <div class="form-group">
+          <label  class="col-sm-2 control-label">Password:</label>
+          <div class="col-sm-4">
+            <input class="form-control" id="inputPassword5" type="password" ng-model="userInfo.Password"
+            placeholder="Password"  name="password" required>   
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-success" ng-click="saveData()" style="margin-right:260px;">
-       <span class="glyphicon glyphicon-flash"></span> Submit!</button>
-    </div> 
-</form>
+
+
+        <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+        <a type="submit" ng-href="#/home">
+        <button class="btn btn-success" ng-click="submit(myForm);" style="margin-right:260px;">
+         Submit!
+        </button> 
+         </a>
+         </div> 
+      </form>
+
+<!-- ng-disabled="!myForm.$valid" -->
+
+  
+
+  

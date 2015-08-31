@@ -1,7 +1,15 @@
-(function (angular) {
-	angular.module('mylinkApp')
+(function (angular)
+
+ {
+var app =	angular.module('mylinkApp')
  	
- 	.controller('aboutController', function($scope) {
-        $scope.message = 'Look! I am an about page.';
-    });	
-})(window.angular);
+app.controller('aboutController', ['$scope', 'userService', function($scope, userService)
+ { 
+                   $scope.userService = userService;
+                   $scope.user = $scope.userService.user; 
+                   $scope.message = '‘No data to show, user has not submitted form yet’'; 
+              
+
+  }]); 
+ }); 
+  
