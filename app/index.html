@@ -6,7 +6,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
 </head>
-<body>
+<body ng-controller="mainController">
     <div class="wrapper">
         <header id="header" class="clear">
         <h1><img src="../app/img/logo.png" style="width:200px"; height="100px";/></h1>
@@ -21,20 +21,21 @@
             </a>
           </li>
           <li>
-            <a href="#/home">Home</a>
+            <a href="#home">Home</a>
           </li>
           <li>
-            <a href="#/about">About</a>
+            <a href="#about">About</a>
           </li>
           <li>
-            <a href="#/siteMap">SiteMap</a>
+            <a href="#siteMap">SiteMap</a>
           </li>
+          
         </ul>
       </div>
       <div id="page-content-wrapper"  style="background-color: transparent;">
         <div class="container-fluid">
-          <div>
-            <div ng-view class="jumbotron text-center" style="height:475px";></div>
+          <div class="jumbotron text-center" style="height:475px";>
+            <div ui-view> </div>
           </div>
         </div>
       </div>
@@ -44,13 +45,14 @@
         <p style="text-align:center">Copyright &copy; 2015 - All Rights Reserved</p>
       </footer>
     </div>
-
-    <script src="bower_components/angular/angular.min.js"></script>
+   <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <!-- // <script src="bower_components/angular/angular.min.js"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script> 
     <script src="app.js"></script>
     <script src="js/mlHomeDirective.js"></script>
     <script src="js/mlAboutDirective.js"></script>
-    <script src="js/aboutController.js"></script>
+
 
 </body>
 </html>

@@ -1,51 +1,54 @@
-var app =  angular.module('mylinkApp', ['ngRoute']);
+
+
+
+var mylinkApp =  angular.module('mylinkApp', ['ui.router']);
 
  // configure our routes
-app.config(['$routeProvider',
-    function($routeProvider){
-      $routeProvider
+mylinkApp.config(['$stateProvider', '$urlRouterProvider',
+   
+    function ($stateProvider, $urlRouterProvider) { 
+     
+      $urlRouterProvider.otherwise('/index.html');
+    //home
 
-      // route for the home page
-         .when('/home', {
-                templateUrl : 'views/home.html'               
-            })
+  $stateProvider 
+                .state('/home', { 
+                         url:"/home", 
+                        templateUrl: "views/home.html", 
+                        controller: 'homeController' 
+                      }) 
+                 .state('/about',   { 
+                     url: "/about", 
+                     templateUrl: "views/about.html", 
+                      controller: 'aboutController' 
+                        }) 
+                  .state('/siteMap', { 
+                   url: "/siteMap", 
+                  templateUrl: "views/siteMap.html", 
+                  controller: 'siteMapController' 
+                       }) 
 
-            // route for the about page
-            .when('/about', {
-                templateUrl : 'views/about.html'
-                // controller  : 'aboutController'
-            })
+                   }]); 
+                  
 
-            // route for sitemap page
-            .when('/siteMap', {
-                templateUrl :   'views/siteMap.html'
-                // controller  : 'sitemapController'
-            })
-            .otherwise({ redirectTo: '/home'});
-    }]);
 
-// (function (angular) {
-//   // create the module and name it mylinkApp
-//   angular.module('mylinkApp',['ngRoute'])
+ mylinkApp.controller('homeController', function($scope) { 
+                  // create a message to display in our view 
+                   $scope.message = 'Everyone come and see how good I look!'; 
 
-//   // configure our routes
-//   .config(['$routeProvider', function ($routeProvider) {
-      
-//       $routeProvider.when('/home', {
-//         // route for the home page
-//         templateUrl : 'views/home.html'    
-      
-//       }).when('/about', {
-//         // route for the about page
-//         templateUrl : 'views/about.html'
-//         // controller  : 'aboutController'
-      
-//       }).when('/siteMap', {
-//         // route for sitemap page
-//         templateUrl :  'views/siteMap.html'
-//         // controller  : 'sitemapController'
-      
-//       })
-//       .otherwise({ redirectTo: '/home'});
-//   }])
-// })(window.angular);
+                }); 
+ mylinkApp.controller('mainController', function($scope,$state) { 
+               // create a message to display in our view 
+                 // $scope.message = 'Everyone come and see how good I look!'; 
+                 $state.go('/home'); 
+                      }); 
+
+ mylinkApp.controller('aboutController', ['$scope', 'userService', function($scope, userService) { 
+                   $scope.userService = userService;
+                   $scope.user = $scope.userService.user; 
+                   
+                   $scope.message = 'No data to show form not submitted!.'; 
+               }]); 
+   mylinkApp.controller('siteMapController', function($scope) { 
+                  $scope.message = 'Contact us! JK. This is just a demo.'; 
+              });

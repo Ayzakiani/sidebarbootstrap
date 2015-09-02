@@ -1,166 +1,95 @@
 
-   //  angular.module('mylinkApp')
-   //      .directive('mlHome', function () {
-   //          return {
 
-    
-   //                templateUrl: '../app/templates/mlHomeDirective.html' ,
-              
-                     
-
-			// Controller : ['$scope' , '$http' , function ($scope , $location)
-   //          {
-
-   //         $scope.submit = function () 
-   //         {
-
-   //         this.Firstname = $scope.Firstname,
-   //         this.Lastname = $scope.lastname,
-   //         this.Username = $scope.Username,
-   //         this.Email   = $scope.Email,
-   //         this.Password  = $scope.Password,
-   //           $location = 'views/about.html'
-
-   //         };
-      
-   //        }]
-
-   //    }();
-
-   (function () {
-  'use strict';
-
- var app = angular.module('mylinkApp')
-    app.directive('mlHome', function () {
-      return {
-      	 scope:{
-                  forminfo:'=info'
-                },
-        templateUrl: '../app/templates/mlHomeDirective.html' 
-    };
-});
-
-        
-
-app.controller('FormController', ['$scope', 'userService', function($scope, userService) {
-             $scope.userService = userService;
-              $scope.user = {
-
-               
-                  Firstname: '$scope.Firstname',
-                  Lastname:'$scope.Lastname' ,
-                  Username: '$scope.Username' ,
-                  Email : '$scope.Email' ,
-                  Password : '$scope.Password'
-                };
-
-
- $scope.submit = function() {
-                 
-                  $scope.userService.setUserFirstName($scope.userinfo.Firstname);
-                  $scope.userService.setUserLastname($scope.userinfo.Lastname);
-                  $scope.userService.setUserName($scope.userinfo.Username);
-                  $scope.userService.setUserEmail($scope.userinfo.Email);
-                  $scope.userService.setUserPassword($scope.userinfo.Password);
-                  alert($scope.userService.getUserFirstName() + "-- " + $scope.userService.getUserLastName() + "---" + $scope.userService.getUserName() 
-                  	+  "-- " + 	$scope.userService.getUserEmail()   + "-- " +    $scope.userService.getUserPassword());
-                  //$scope.name=this.user.name;
+    (function(){
+              var mylinkApp = angular.module('mylinkApp');
+             mylinkApp.directive('mlHome', function() {
+             return {
+                  
+               templateUrl: '../app/Templates/mlHomeDirective.html' 
               };
-              }]);
+               
+             });
+             mylinkApp.controller('MyFormCtrl', ['$scope', 'userService', function($scope, userService) 
+             {
+               $scope.userService = userService;
+               $scope.user = 
+               {   
+                  firstname: '',
 
+                  lastname: '' ,
 
-	 app.service('userService', function(){
-                var userService = {
-                  user: {
-                  Firstname: '',
-                  Lastname:'' ,
-                  Username: '' ,
-                  Email : '' ,
-                  Password : ''
-                  },
-                  getUser: function(){
-                    return userService.user;
-                  },
-                  getUserFirstName: function(){
-                    return userService.userinfo.Firstname;
-                  },
-                   getUserLastName: function(){
-                    return userService.userinfo.Lastname;
-                  },
-                   getUserName: function(){
-                    return userService.userinfo.Username;
-                  },
-                  getUserEmail: function(){
-                    return userService.userinfo.Email;
-                  },
-                  getUserPassword: function(){
-                    return userService.userinfo.Password;
-                  },
+                  username: '' ,
 
+                
+                  email: ''  ,
 
-                  setFirstname: function(Firstname){
-                    userService.userinfo.Firstname = Firstname;
-                  },
-                  setLastname: function(Lastname){
-                   userService.userinfo.Lastname = Lastname;
-                  },
-                  setUserName: function(Username){
-                    userService.userinfo.Username = Username;
-                  },
+                  password: '' 
 
-                  setUserEmail: function(Email){
-                    userService.userinfo.Email = Email;
-                  },
-                  setUserPassword: function(Password){
-                    userService.userinfo.Password = Password;
-                  },
+                  };
+   
+               $scope.submit = function() {
+                // console.log('User clicked register', this.user);
+                      $scope.userService.setUserFirstname($scope.user.Firstname);
+                      $scope.userService.setUserLastname($scope.user.Lastname);
+                      $scope.userService.setUserUsername($scope.user.Username);
+                      $scope.userService.setUserEmail($scope.user.Email);
+                      $scope.userService.setUserPassword($scope.user.Password);
+                      
+                      $scope.msg = 'Form Successfully submitted!'; 
+                    //alert($scope.userService.getUserName() + "-- " + $scope.userService.getUserEmail());
+                    //$scope.name=this.user.name;
+                    
                 };
-                return userService;
-              });
+                }]);
+                
+                mylinkApp.service('userService', function(){
+                  var userService = {
+                    user: {
+                      'firstname': '',
+                      'lastname' : '' ,
+                      'username' : '' ,
+                      'email': ''   ,
+                      'password' : '' 
+                       
+                    },
+                    getUser: function(){
+                      return userService.user;
+                    },
+                    getUserFirstname: function(){
+                      return userService.user.Firstname;
+                    },
+                     getUserLastname: function(){
+                      return userService.user.Lastname;
+                    },
+                     getUserUsername: function(){
+                      return userService.user.Username;
+                    },
 
-  })();
+                    getUserEmail: function(){
+                      return userService.user.Email;
+                    },
+                    getUserPassword: function(){
+                      return userService.user.Password;
+                    },
+                    setUserFirstname: function(firstname){
+                      userService.user.Firstname = firstname;
+                    },
+                    setUserLastname: function(lastname){
+                      userService.user.Lastname = lastname;
+                    },
+                    setUserUsername: function(username){
+                      userService.user.Username = username;
+                    },
+                    setUserEmail: function(email){
+                      userService.user.Email = email;
+                    },
+                    setUserPassword: function(password){
+                      userService.user.Password = password;
+                    },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//          ['$scope', '$http', function ($scope, $http) {
-//           $scope.submit = function () {
-// 		   this.Firstname = $scope.Firstname,
-// 		   console.log (this.Firstname);
-//            this.Lastname = $scope.lastname,
-//            this.Username = $scope.Username,
-//            this.Email   = $scope.Email,
-//            this.Password  = $scope.Password,
-           
-//             $http.post('/user', {
-              
-             
-//             }).success(function () {
-//               $scope.responseMessage = 'You have successfully registered; you can now log in';
-//             }).error(function (data, status) {
-//               if (status === 400) {ss
-//                 $scope.responseMessage = data;
-//               } else {
-//                 $scope.responseMessage = 'An unknown error has occurred; please try again';
-//               }
-//             });
-//           };
-//         }]
-//       };
-//     });
-// })();
-
-
+                  };
+                  return userService;
+                
+                });
+                
+            })();

@@ -1,11 +1,10 @@
 (function () {
-    angular.module('mylinkApp')
-        .directive('mlAbout', function () {
+      var mylinkApp = angular.module('mylinkApp')
+      mylinkApp.directive('mlAbout', function () {
             return {
-                templateUrl: '../app/templates/mlAboutDirective.html',     
-            };
-
-
-          
-        });
+            
+                templateUrl: '../app/Templates/mlAboutDirective.html'   
+                    };
+               
+             });
 })();
