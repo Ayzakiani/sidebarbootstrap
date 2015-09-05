@@ -124,4 +124,11 @@
         position: relative;
         margin-right: 0;
     }
+.submitted .show-invalid textarea, .submitted .show-invalid input, .submitted .show-invalid select {
+    border: 1px solid red;
+}
+.submitted .show-valid textarea, .submitted .show-valid input, .submitted .show-valid select {
+    border: 1px solid green;
+}
+ 
 }
