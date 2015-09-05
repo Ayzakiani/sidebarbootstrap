@@ -1,52 +1,51 @@
-<form  name="myForm" class="form-horizontal"  ng-controller="MyFormCtrl as ctrl">
-    <div class="form-group">
+<form  name="myForm" data-toggle="validator" class="form-horizontal"  ng-controller="MyFormCtrl as ctrl">
+    <div class="form-group" show-errors>
         <label class="col-sm-2 control-label">First Name:</label>
         <div class="col-sm-4">
-            <input class="form-control" type="name"
+            <input class="form-control" type="text" name="firstname"
                 ng-model="user.Firstname"  placeholder="john" 
-                pattern="[A-Za-z0-9\s]{4,12}" required="Please fill the first name">
+                pattern="[a-zA-Z0-9]+"  required/>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" show-errors> 
         <label  class="col-sm-2 control-label">Last Name:</label>
         <div class="col-sm-4">
-            <input class="form-control" type="name" 
+            <input class="form-control" type="text"  name="lastname"
                 ng-model="user.Lastname" placeholder="smith"
-                pattern="[A-Za-z0-9\s]{4,12}" required>
+                pattern="[a-zA-Z0-9]+" required/>
+                
         </div>
     </div>
-    <div class="form-group">
-        <label  class="col-sm-2 control-label">User Name:</label>
+    <div class="form-group" show-errors> 
+        <label  class="col-sm-2 control-label">Username</label>
         <div class="col-sm-4">
-            <input class="form-control"  type="name"
-                ng-model="user.Username"
-                placeholder="JohnSmith"  required>
+            <input type="text" placeholder="johnSmith" ng-model="user.Username" class="form-control" name="username"
+             pattern="([a-zA-Z0-9]|@|_)+"
+                required/>
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Email:</label>
+    <div class="form-group" show-errors> 
+        <label class="col-sm-2 control-label">Email address</label>
         <div class="col-sm-4">
-            <input class="form-control" type="Email" ng-model="user.Email"
-                placeholder="example@dummy.com" 
-                pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>   
+            <input class="form-control" name="email" type="email" ng-model="user.Email"
+                placeholder="something@domain.com"required/>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" show-errors >
         <label  class="col-sm-2 control-label">Password:</label>
         <div class="col-sm-4">
             <input class="form-control" type="password" 
                 ng-model="user.Password"
-                placeholder="Password"  name="password" required>   
+                placeholder="Password"  name="password" required/>   
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group"  show-errors>
         <div class="col-sm-offset-2 col-sm-10">
-            <button class="btn btn-success"  ng-disabled="!myForm.$valid" ng-click="submit();" 
+            <button class="btn btn-success"  ng-click="submit();" 
                 style="margin-right:260px;" type="submit"> Submit</button>   
         </div>
     </div>
     <div class="alert alert-success" ng-show="msg.length > 0">
-        
-        <span>{{msg}}</span>
+        <span>{{msg}} </span>
     </div>
 </form>
