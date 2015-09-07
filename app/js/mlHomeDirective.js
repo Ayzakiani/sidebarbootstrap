@@ -1,49 +1,37 @@
+(function() {
+  var mylinkApp = angular.module('mylinkApp');
+  mylinkApp.directive('mlHome', function() {
+    return {
+      scope: {
+
+      },
+      templateUrl: '../app/templates/mlHomeDirective.html',
+      controller: function() {
+        
+      }
+    };
+
+  });
+  mylinkApp.controller('MyFormCtrl', ['$scope', 'userService', function($scope, userService) {
+    $scope.userService = userService;
+    $scope.user = {
+      firstname: '',
+
+      lastname: '',
+
+      username: '',
 
 
-    (function(){
-              var mylinkApp = angular.module('mylinkApp');
-             mylinkApp.directive('mlHome', function() {
-             return {
-                scope: {
+      email: '',
 
-                     firstname: '=',
+      password: ''
 
-                     lastname: '=',
+    };
 
-                      username: '=',
-
-                        email: '=',
-
-                      password: '='
-
-                  },
-               templateUrl: '../app/Templates/mlHomeDirective.html' 
-              };
-               
-             });
-             mylinkApp.controller('MyFormCtrl', ['$scope', 'userService', function($scope, userService) {
-               $scope.userService = userService;
-                $scope.user = {
-
-                     Firstname: '',
-                     Lastname:'' ,
-                     Username: '' ,
-                     Email : '' ,
-                     Password : ''
-                  };
-   
-                $scope.submit = function() {
-
-
-                  $scope.$broadcast('show-errors-check-validity');
-
-                    if ($scope.myForm.$invalid)
-                      { 
-                        return;
-                        }
-               
-        $scope.userService.setUserFirstname($scope.user.Firstname);
-       $scope.userService.setUserLastname($scope.user.Lastname);
+    $scope.submit = function() {
+      
+      $scope.userService.setUserFirstname($scope.user.Firstname);
+      $scope.userService.setUserLastname($scope.user.Lastname);
       $scope.userService.setUserUsername($scope.user.Username);
       $scope.userService.setUserEmail($scope.user.Email);
       $scope.userService.setUserPassword($scope.user.Password);
@@ -90,7 +78,7 @@
       },
       setUserUsername: function(username) {
         userService.user.Username = username;
-     },
+      },
       setUserEmail: function(email) {
         userService.user.Email = email;
       },
@@ -102,4 +90,5 @@
     return userService;
 
   });
-      })();
+
+})();

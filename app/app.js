@@ -6,8 +6,7 @@
   function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/index.html');
-
-
+    
     $stateProvider.state('/home', {
       url: "/home",
       templateUrl: "views/home.html",
@@ -26,10 +25,10 @@
 
   }]);
 
-  mylinkApp.controller('mainController', function($scope, $state) {
+  // mylinkApp.controller('mainController', function($scope, $state) {
      
  
-  });
+  // });
 
   mylinkApp.controller('aboutController', ['$scope', 'userService', function($scope, userService) {
     $scope.userService = userService;

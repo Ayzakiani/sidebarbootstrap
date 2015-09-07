@@ -5,7 +5,7 @@ angular.module('mylinkApp', []).
       require:  '^form',
       link: function (scope, el, attrs, formCtrl) {
         scope.$on('show-errors-check-validity', function() {
-         el.toggleClass('has-error', formCtrl[inputName].$invalid);
+          el.toggleClass('has-error', formCtrl[inputName].$invalid);
         });
         // find the text box element, which has the 'name' attribute
         var inputEl   = el[0].querySelector("[firstname]");
