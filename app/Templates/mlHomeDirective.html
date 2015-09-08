@@ -1,48 +1,81 @@
-<form  name="myForm" data-toggle="validator" class="form-horizontal"  ng-controller="MyFormCtrl as ctrl">
-    <div class="form-group" show-errors>
+<form  name="myForm"  class="form-horizontal" novalidate>
+
+
+    <div class="form-group" ng-class="{ 'has-error': myForm.firstname.$invalid && myForm.firstname.$touched}">
         <label class="col-sm-2 control-label">First Name:</label>
         <div class="col-sm-4">
+        
             <input class="form-control" type="text" name="firstname"
                 ng-model="user.Firstname"  placeholder="john" 
-                pattern="[a-zA-Z0-9]+"  required/>
+                pattern="[a-zA-Z0-9]+" required/>
+
+                <!-- <div class="help-block" ng-messages="myForm.firstname.$error" ng-if="myForm.firstname.$touched">
+                
+                <p ng-message="required">Your name is required.</p>
+                        
+                </div> -->
         </div>
     </div>
-    <div class="form-group" show-errors> 
+
+
+
+
+    <div class="form-group"  ng-class="{ 'has-error': myForm.lastname.$touched && myForm.lastname.$invalid }" > 
         <label  class="col-sm-2 control-label">Last Name:</label>
         <div class="col-sm-4">
             <input class="form-control" type="text"  name="lastname"
                 ng-model="user.Lastname" placeholder="smith"
-                pattern="[a-zA-Z0-9]+" required/>
-                
+                pattern="[a-zA-Z0-9]+" required/>       
+        <!-- <div class="help-block" ng-messages="myForm.lastname.$error" ng-if="myForm.lastname.$touched">
+        <p ng-message="required">Your last name is required.</p>
+        </div> -->
         </div>
     </div>
-    <div class="form-group" show-errors> 
+
+
+
+
+    <div class="form-group" ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid }" > 
         <label  class="col-sm-2 control-label">Username</label>
         <div class="col-sm-4">
             <input type="text" placeholder="johnSmith" ng-model="user.Username" class="form-control" name="username"
-             pattern="([a-zA-Z0-9]|@|_)+"
+            pattern="([a-zA-Z0-9]|@|_)+"
                 required/>
-        </div>
+       <!--  <div class="help-block" ng-messages="myForm.Username.$error" ng-if="myForm.Username.$touched">
+        <p ng-message="required">username is required.</p>
+        </div> -->
     </div>
-    <div class="form-group" show-errors> 
+    </div>
+
+
+    <div class="form-group" ng-class="{ 'has-error': myForm.email.$touched && myForm.email.$invalid }"> 
         <label class="col-sm-2 control-label">Email address</label>
         <div class="col-sm-4">
             <input class="form-control" name="email" type="email" ng-model="user.Email"
                 placeholder="something@domain.com"required/>
-        </div>
+        <!--  <div class="help-block" ng-messages="myForm.email.$error" ng-if="myForm.email.$touched">
+       <p ng-message="required">Your email is invalid.</p>
+      </div> -->
     </div>
-    <div class="form-group" show-errors >
+</div>
+
+    <div class="form-group" ng-class="{'has-error': myForm.password.$touched && myForm.password.$invalid }" >
         <label  class="col-sm-2 control-label">Password:</label>
         <div class="col-sm-4">
             <input class="form-control" type="password" 
                 ng-model="user.Password"
                 placeholder="Password"  name="password" required/>   
-        </div>
+        
+<!--          <div class="help-block" ng-messages="myForm.password.$error" ng-if="myForm.password.$touched">
+    </div> -->
     </div>
-    <div class="form-group"  show-errors>
-        <div class="col-sm-offset-2 col-sm-10">
+</div>
+
+
+    <div class="form-group" >
+        <div class="col-sm-offset-3 col-sm-10">
             <button class="btn btn-success"  ng-click="submit();" 
-                style="margin-right:260px;" type="submit"> Submit</button>   
+                style="margin-right:420px;"  ng-disabled="myForm.$invalid" type="submit"> Submit</button>   
         </div>
     </div>
     <div class="alert alert-success" ng-show="msg.length > 0">
