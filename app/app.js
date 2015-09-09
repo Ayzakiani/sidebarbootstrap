@@ -5,8 +5,7 @@
 
       function($stateProvider, $urlRouterProvider) {
 
-        // $urlRouterProvider.otherwise('/index.html');
-        
+      
         $stateProvider.state('home', {
           url: '/home',
           templateUrl: 'views/home.html',

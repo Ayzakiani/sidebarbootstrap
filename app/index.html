@@ -9,7 +9,7 @@
 <body>
     <div class="wrapper">
         <header id="header" class="clear">
-        <h1><img src="../app/img/logo.png" style="width:200px"; height="100px";/></h1>
+        <h1><img src="../app/img/logo.png" /></h1>
     </div>
     <div id="wrapper">
       <!-- Sidebar -->
@@ -32,9 +32,9 @@
           
         </ul>
       </div>
-      <div id="page-content-wrapper"  style="background-color: transparent;">
+      <div id="page-content-wrapper">
         <div class="container-fluid">
-          <div class="jumbotron text-center" style="height:475px";>
+          <div class="jumbotron text-center" id="jmb-text-center">
             <div ui-view> </div>
           </div>
         </div>
@@ -42,19 +42,16 @@
     </div>
     <div id="wrapper">
       <footer id="footer" class="clear">
-        <p style="text-align:center">Copyright &copy; 2015 - All Rights Reserved</p>
+        <p>Copyright &copy; 2015 - All Rights Reserved</p>
       </footer>
     </div>
    
    <script src="bower_components/angular/angular.js"> </script>
    <script src="bower_components/angular-route/angular-ui-router.min.js"></script>
-   <!-- // <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script> -->
-   
     <script src="app.js"></script>
     <script src="js/mlHomeDirective.js"></script>
     <script src="js/services.js"></script>
      <script src="js/mlAboutDirective.js"></script> 
-     <!-- // <script src="js/showErrorsDirective.js"></script>  -->
 
 </body>
 </html>

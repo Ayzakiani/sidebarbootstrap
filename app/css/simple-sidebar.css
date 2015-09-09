@@ -43,12 +43,14 @@
     padding: 15px;
     background:#91BFD2;
     height: 100%;
+    background-color: transparent;
 
 }
 
 #wrapper.toggled #page-content-wrapper {
     margin-right: -250px;
 }
+
 
 /* Sidebar Styles */
 
@@ -98,6 +100,7 @@
     background: none;
 }
 
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
@@ -124,11 +127,20 @@
         position: relative;
         margin-right: 0;
     }
-.submitted .show-invalid textarea, .submitted .show-invalid input, .submitted .show-invalid select {
-    border: 1px solid red;
-}
-.submitted .show-valid textarea, .submitted .show-valid input, .submitted .show-valid select {
-    border: 1px solid green;
-}
+    #wrapper #footer p {
+     text-align:center;
+    }
+
+    #jmb-text-center {
+                     
+    height:475px;
+    }
+     
+     #header h1 img {
+
+        width:200px; 
+        height:100px;
+     }
+   
  
 }
