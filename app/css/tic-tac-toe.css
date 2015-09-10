@@ -1,0 +1,45 @@
+/*******tic-tac-toe******/
+#game_play {
+  display: none;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  width: 75px;
+  height: 75px;
+  border: 1px solid black;
+  font-size: 48px;
+  text-shadow: 2px 2px limegreen;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+  background: seagreen;
+  position: relative;
+}
+
+td:after {
+  display: block;
+  text-shadow: none;
+  content: attr(id);
+  font-size: 10px;
+  color: #333333;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+}
+
+#message {
+  font-weight: bold;
+  padding: 5px;
+  font-family: monospace;
+  font-size: 150%;
+}
+
+.winner {
+  background: limegreen;
+}
+/*******tic-tac-toe END******/
