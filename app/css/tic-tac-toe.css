@@ -6,6 +6,8 @@
 table {
   border: 1px solid black;
   border-collapse: collapse;
+
+
 }
 
 td {
@@ -13,12 +15,13 @@ td {
   height: 75px;
   border: 1px solid black;
   font-size: 48px;
-  text-shadow: 2px 2px limegreen;
+  text-shadow: 2px 2px #AF96A3;
   font-family: sans-serif;
   font-weight: bold;
   text-align: center;
-  background: seagreen;
-  position: relative;
+  background: #574461;
+  position: relative ;
+  
 }
 
 td:after {
@@ -40,6 +43,6 @@ td:after {
 }
 
 .winner {
-  background: limegreen;
+  background: #DD9BDE;
 }
 /*******tic-tac-toe END******/
