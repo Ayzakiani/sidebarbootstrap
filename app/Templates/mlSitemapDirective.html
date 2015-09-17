@@ -1,20 +1,21 @@
 
     <h1>Tic Tac Toe</h1>
-      
-    
-    <form>
+      <!-- ng-hide ="fyuu" -->
+    <div  >
+    <form >
       <label>How many rows and colums? </label>
       <br />
-      <input type='number' id="row_length" ng-model="row_length" />
+      <input type='number' id="row_length" ng-model="row_length" ng-min = "3" ng-max ="12"/>
       <br />
       <label>Winning streak length?</label>
       <br />
       <input type='number' id='streak_length' ng-model="streak_length" />
       <br />
-    </form>
+   
      <br />
     <button class="btn-success btn span3" ng-click='start_new_game();'>Start new game</button>
-
+ </form>
+ </div>
 
 <div id='game_play'>
      <!--  <ul>
@@ -23,15 +24,15 @@
         <li>Play continues until X or O wins by connecting the right number together, or there's a tie!</li>
       </ul>
  -->
-
+<!-- ng-show ="fyuu" -->
       <table id='gameboard' style="align:center;">
         <caption id='message'></caption>
         <tbody id='gameboard_rows'></tbody>
-     
-       <tr ng-repeat="i in getNumber(row_length) track by $index" ng-init="sectionIndex = $index">
-     <!--  <span>{{$index+1}}</span> -->
-            <td ng-repeat="j in getNumber(row_length) track by $index" ng-click='oncheck(sectionIndex,$index);'>
-      <!-- <span>{{$index+1}}</span> -->
+    
+       <tr ng-repeat="i in getNumber(row_length) track by $index" ng-init="sectionIndex = $index" >
+          
+            <td ng-repeat="j in getNumber(row_length) track by $index"
+             ng-click='oncheck(sectionIndex,$index);'>
              </td>
        </tr>
    </table>
@@ -47,22 +48,3 @@
 
 
 
-
-
-
-<!-- 
-  <div class="tictactoe">
-       <div class="board">
-         <div ng-repeat="i in getNumber(myNumber) track by $index" class="row">
-         <span>{{$index+1}}</span>
-         </div>
-         <div ng-repeat="i in getNumber(myOtherNumber) track by $index"> 
-           <span>{{$index+1}}</span>
-           
-        </div>
-         </div>
-        </div>
-    
-  </body> -->
-  
-            
