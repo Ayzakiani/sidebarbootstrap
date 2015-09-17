@@ -16,6 +16,7 @@
                      $scope.col_length = 3;
                      $scope.directions = [];
                      $scope.moves = [];
+                    
 
                     
                      $scope.getNumber = function(num) {
@@ -37,21 +38,59 @@
                          ];
 
 
+                        var cells = angular.element (document.getElementsByTagName('td'));
+					    for (var i = 0; i < cells.length; i++) {
+					   var current_cell = cells[i];
+					   current_cell.id = i;
+					   current_cell = $scope.move;
+					  $scope.moves[i] = ' ';
+					  }
+
+
+
 
                          $scope.message = document.getElementById('message');
                          message.innerHTML = 'Current player: X';
+                       
                      }
+                     
 
 
-
+                        // var  fyuu = 'true';
                      $scope.oncheck = function(row, cell) {
-                         console.log(row + ' ' + cell);
+
+                        console.log(row + ' ' + cell);
+                      var current_player = 'X';
+                      $scope.cell = current_player;
+                     
+       //               var current_player = 'X';
+                  
+					  // $scope.cell = current_player;
+
+                         // var current_cell = ($scope.cell);
+                        // current_cell = $scope.move();
+                        // $scope.cell == 'X';
+                        
+              //           $scope.cell = 'X'
+              //            if (cell.value == "     ")
+              //                   {
+						        // cell.value = symbol;
+						        // if (symbol == "X")
+						        // symbol = "O";
+						        // else
+						        // symbol = "X";
+						        // }
+
+                         // var fyuu = "false";
+                         // alert("haha");
+
+
                      }
 
                      $scope.start_new_game = function() {
 
-                         row_length = parseInt($scope.row_length);
-                         col_length = parseInt($scope.row_length);
+                         row_length = $scope.row_length;
+                         col_length = $scope.row_length;
                          $scope.gameboard_rows = document.getElementById('gameboard_rows');
                          gameboard_rows.innerHTML = '';
                          minimum_winning_streak_length = $scope.streak_length;
@@ -59,7 +98,9 @@
                          $scope.create_game();
                      }
 
-                     $scope.current_player = 'X';
+                  
+
+                    // $scope.current_player = 'X';
                      $scope.move = function() {
                          if (this.innerHTML != ' ') {
                              return;
@@ -85,8 +126,8 @@
                              }
                              var message = document.getElementById('message');
                              message.innerHTML = 'Current player: ' + current_player;
-                         }
-                     }
+                              }
+                      }
 
 
 
