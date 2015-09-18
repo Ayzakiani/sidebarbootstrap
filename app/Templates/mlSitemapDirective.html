@@ -29,10 +29,24 @@
         <caption id='message'></caption>
         <tbody id='gameboard_rows'></tbody>
     
+       <!-- <tr ng-repeat="i in getNumber(row_length) track by $index" ng-init="sectionIndex = $index" >
+          
+            <td ng-repeat="j in getNumber(row_length) track by $index"
+             ng-click='oncheck(sectionIndex,$index);'>
+             {{j}}
+             </td>
+       </tr> -->
        <tr ng-repeat="i in getNumber(row_length) track by $index" ng-init="sectionIndex = $index" >
           
             <td ng-repeat="j in getNumber(row_length) track by $index"
              ng-click='oncheck(sectionIndex,$index);'>
+                <div  ng-show="xyz_1">
+                  {{symbol_1}}
+                </div >
+                
+                <div ng-show="xyz_2">
+                   {{symbol_2}}
+                </div>
              </td>
        </tr>
    </table>

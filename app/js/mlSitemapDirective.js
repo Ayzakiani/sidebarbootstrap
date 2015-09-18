@@ -9,18 +9,18 @@
 
                  controller: ['$scope', function($scope) {
 
-
-
                      $scope.streak_length = 3;
                      $scope.row_length = 3;
                      $scope.col_length = 3;
                      $scope.directions = [];
-                     $scope.moves = [];
+                    
+                      $scope.gameField = [];
+                     // $scope.gameField = new Array [row_length] [row_length];
+                     var gameField = new Array(row_length);
                     
 
                     
                      $scope.getNumber = function(num) {
-                        
                          return new Array(num);
                      }
 
@@ -38,14 +38,7 @@
                          ];
 
 
-                        var cells = angular.element (document.getElementsByTagName('td'));
-					    for (var i = 0; i < cells.length; i++) {
-					   var current_cell = cells[i];
-					   current_cell.id = i;
-					   current_cell = $scope.move;
-					  $scope.moves[i] = ' ';
-					  }
-
+  
 
 
 
@@ -54,38 +47,50 @@
                        
                      }
                      
+                      $scope.symbol_1 = 'X'
+                      $scope.symbol_2 = 'O'
+					   $scope.player_1 = 'X';
+                        $scope.player_2 = 'O';
 
-
-                        // var  fyuu = 'true';
+                       
                      $scope.oncheck = function(row, cell) {
 
-                        console.log(row + ' ' + cell);
-                      var current_player = 'X';
-                      $scope.cell = current_player;
+
+          //               $scope.xyz_1= false;
+          //               $scope.xyz_2 = false;
+                     	
+          //            	if (player_1 ==  $scope.symbol_1)
+          //            	{
+          //                    $scope.xyz_1= true;
+          //                     $scope.xyz_2 =false;
+
+          //                }
+          //                else if (player_2 ==  $scope.symbol_2)
+          //                 {
+          //                 		 $scope.xyz_1= false;
+          //                 	 $scope.xyz_2 =true;
+          //                 }
+
+                       };
+
+
+
+                       // console.log(row + ' ' + cell);
+                      //   var current_cell = [row , cell];
+                      
+                      // $scope.cell = 'X';
+                      // alert(row+' '+cell);
+                      //  if (cell == 0 && row == 0)  {
+                                
+                             
+                      //            alert('X');
+                      //        }
+                       
+                             //$scope.symbol = row+' '+cell;
+                      
                      
-       //               var current_player = 'X';
-                  
-					  // $scope.cell = current_player;
 
-                         // var current_cell = ($scope.cell);
-                        // current_cell = $scope.move();
-                        // $scope.cell == 'X';
-                        
-              //           $scope.cell = 'X'
-              //            if (cell.value == "     ")
-              //                   {
-						        // cell.value = symbol;
-						        // if (symbol == "X")
-						        // symbol = "O";
-						        // else
-						        // symbol = "X";
-						        // }
-
-                         // var fyuu = "false";
-                         // alert("haha");
-
-
-                     }
+                     
 
                      $scope.start_new_game = function() {
 
@@ -100,34 +105,34 @@
 
                   
 
-                    // $scope.current_player = 'X';
-                     $scope.move = function() {
-                         if (this.innerHTML != ' ') {
-                             return;
-                         }
-                         $scope.moves[parseInt(this.id)] = current_player;
-                         console.log('All moves:');
-                         console.dir($scope.moves);
-                         this.innerHTML = current_player;
+            //         var current_player = 'X';
+            // $scope.move = function() {
+            //              if (this.innerHTML != ' ') {
+            //                  return;
+            //              }
+            //              $scope.moves[parseInt(this.id)] = current_player;
+            //              console.log('All moves:');
+            //              console.dir($scope.moves);
+            //              this.innerHTML = current_player;
 
-                         $scope.winning_positions = check_for_winner();
-                         if ($scope.winning_positions.length > 1) {
-                             $scope.message = document.getElementById('message');
-                             message.innerHTML = current_player + ' wins!';
-                             for (i = 0; i < $scope.winning_positions.length; i++) {
+            //              $scope.winning_positions = check_for_winner();
+            //              if ($scope.winning_positions.length > 1) {
+            //                  $scope.message = document.getElementById('message');
+            //                  message.innerHTML = current_player + ' wins!';
+            //                  for (i = 0; i < $scope.winning_positions.length; i++) {
 
-                                 document.getElementById($scope.winning_positions[i]).className += ' winner';
-                             }
-                         } else {
-                             if (current_player == 'X') {
-                                 current_player = 'O';
-                             } else {
-                                 current_player = 'X'
-                             }
-                             var message = document.getElementById('message');
-                             message.innerHTML = 'Current player: ' + current_player;
-                              }
-                      }
+            //                      document.getElementById($scope.winning_positions[i]).className += ' winner';
+            //                  }
+            //              } else {
+            //                  if (current_player == 'X') {
+            //                      current_player = 'O';
+            //                  } else {
+            //                      current_player = 'X'
+            //                  }
+            //                  var message = document.getElementById('message');
+            //                  message.innerHTML = 'Current player: ' + current_player;
+            //                   }
+            //           }
 
 
 
