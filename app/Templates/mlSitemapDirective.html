@@ -36,15 +36,28 @@
              {{j}}
              </td>
        </tr> -->
+       <!-- <tr ng-repeat="i in getNumber(row_length) track by $index" ng-init="sectionIndex = $index" >
+          
+            <td ng-repeat="j in getNumber(row_length) track by $index"
+             ng-click='oncheck(sectionIndex,$index);'>
+                <div  ng-show="gameField.setvalue_1">
+                  {{symbol_1}}
+                </div >
+                
+                <div ng-show="gameField.setvalue_2">
+                   {{symbol_2}}
+                </div>
+             </td>
+       </tr> -->
        <tr ng-repeat="i in getNumber(row_length) track by $index" ng-init="sectionIndex = $index" >
           
             <td ng-repeat="j in getNumber(row_length) track by $index"
              ng-click='oncheck(sectionIndex,$index);'>
-                <div  ng-show="xyz_1">
+                <div  ng-show="gameField[i][j].setvalue_1">
                   {{symbol_1}}
                 </div >
                 
-                <div ng-show="xyz_2">
+                <div ng-show="gameField[i][j].setvalue_2">
                    {{symbol_2}}
                 </div>
              </td>

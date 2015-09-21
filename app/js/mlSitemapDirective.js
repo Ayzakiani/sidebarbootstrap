@@ -13,10 +13,31 @@
                      $scope.row_length = 3;
                      $scope.col_length = 3;
                      $scope.directions = [];
-                    
-                      $scope.gameField = [];
-                     // $scope.gameField = new Array [row_length] [row_length];
-                     var gameField = new Array(row_length);
+                     $scope.gameField = new Array(row_length);
+                     
+                      // $scope.gameField = [ { 
+                      // 	"setvalue_1": false, 
+                      // 	"setvalue_2": false 
+                      // },
+                      // { 
+                      // 	"setvalue_1": false, 
+                      // 	"setvalue_2": false 
+                      // }
+                      // ];
+
+                      for (var i = 0; i < row_length; i++){
+                      	for (var j = 0; j < row_length; j++) {
+                     		$scope.gameField[i][j] =  {
+                     			setvalue_1: false,
+                     			setvalue_2 : false
+                     		};		
+                      	}
+                      }
+                   		
+                     
+                     // $scope.gameField.forEach(function(obj){
+                     //           //alert(obj.xyz_1);
+                     //     });
                     
 
                     
@@ -37,57 +58,54 @@
                              row_length - 1 //sw
                          ];
 
-
-  
-
-
-
                          $scope.message = document.getElementById('message');
                          message.innerHTML = 'Current player: X';
                        
                      }
                      
-                      $scope.symbol_1 = 'X'
-                      $scope.symbol_2 = 'O'
-					   $scope.player_1 = 'X';
-                        $scope.player_2 = 'O';
+                  
 
-                       
                      $scope.oncheck = function(row, cell) {
+                      $scope.symbol_1 = 'X' ;
+                      $scope.symbol_2 = 'O' ;
+                      
+     
+                      //   $scope.xyz_1= false;
+                      //   $scope.xyz_2 = false;
+                      //   if (player_1 ==  $scope.symbol_1)
+                     	// {
+                      //        $scope.xyz_1= true;
+                      //         $scope.xyz_2 =false;
+                      	$scope.gameField[row][cell]
+                              // $scope.gameField.push($scope.row +' '+ $scope.cell);
+                               if ($scope.gameField.setvalue_1 == true) {
+                               	$scope.symbol_1;
+                               }
+                               else if ( $scope.gameField.setvalue_2 == true)
+                               {
+                               	$scope.symbol_2;
+                               }
 
 
-          //               $scope.xyz_1= false;
-          //               $scope.xyz_2 = false;
+                               
+
+                      //    }
+                      //    else if (player_2 ==  $scope.symbol_2)
+                      //     {
+                      //     	 $scope.xyz_1= false;
+                      //     	 $scope.xyz_2 =true;
+                      //     	 $scope.gameField.push($scope.row +' '+ $scope.cell);
+
+                      //     }
+
                      	
-          //            	if (player_1 ==  $scope.symbol_1)
-          //            	{
-          //                    $scope.xyz_1= true;
-          //                     $scope.xyz_2 =false;
 
-          //                }
-          //                else if (player_2 ==  $scope.symbol_2)
-          //                 {
-          //                 		 $scope.xyz_1= false;
-          //                 	 $scope.xyz_2 =true;
-          //                 }
+
 
                        };
 
 
 
-                       // console.log(row + ' ' + cell);
-                      //   var current_cell = [row , cell];
-                      
-                      // $scope.cell = 'X';
-                      // alert(row+' '+cell);
-                      //  if (cell == 0 && row == 0)  {
-                                
-                             
-                      //            alert('X');
-                      //        }
-                       
-                             //$scope.symbol = row+' '+cell;
-                      
                      
 
                      
