@@ -13,7 +13,10 @@
                      $scope.row_length = 3;
                      $scope.col_length = 3;
                      $scope.directions = [];
-                     $scope.gameField = new Array(row_length);
+                     $scope.gameFieldArray = [
+                     [row_length],
+                     [row_length]
+                     ];
 
                      // $scope.gameField = [ { 
                      // 	"setvalue_1": false, 
@@ -27,7 +30,7 @@
 
                      for (var i = 0; i < row_length; i++) {
                          for (var j = 0; j < row_length; j++) {
-                             $scope.gameField[i][j] = {
+                             $scope.gameFieldArray[i][j] = {
                                  setvalue_1: false,
                                  setvalue_2: false
                              };
@@ -107,7 +110,7 @@
                              return;
                          }
 
-                         $scope.gameField[i][j] = $scope.symbol_1;
+                         $scope.gameFieldArray[i][j] = $scope.symbol_1;
                          console.log($scope.symbol_1);
                          this.innerHTML = $scope.symbol_1;
                          var winning_positions = check_for_winner();
