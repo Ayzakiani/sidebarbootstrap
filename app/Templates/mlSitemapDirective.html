@@ -1,69 +1,31 @@
-
-    <h1>Tic Tac Toe</h1>
-      <!-- ng-hide ="fyuu" -->
-    <div  >
-    <form >
-      <label>How many rows and colums? </label>
-      <br />
-      <input type='number' id="row_length" ng-model="row_length" ng-min = "3" ng-max ="12"/>
-      <br />
-      <label>Winning streak length?</label>
-      <br />
-      <input type='number' id='streak_length' ng-model="streak_length" />
-      <br />
-   
-     <br />
-    <button class="btn-success btn span3" ng-click='start_new_game();'>Start new game</button>
- </form>
- </div>
-
-<div id='game_play'>
-     <!--  <ul>
-        <li>X goes first</li>
-        <li>Then O</li>
-        <li>Play continues until X or O wins by connecting the right number together, or there's a tie!</li>
-      </ul>
- -->
-<!-- ng-show ="fyuu" -->
-      <table id='gameboard' style="align:center;">
-        <caption id='message'></caption>
-        <tbody id='gameboard_rows'></tbody>
-    
-       <!-- <tr ng-repeat="i in getNumber(row_length) track by $index" ng-init="sectionIndex = $index" >
-          
-            <td ng-repeat="j in getNumber(row_length) track by $index"
-             ng-click='oncheck(sectionIndex,$index);'>
-             {{j}}
-             </td>
-       </tr> -->
-       <!-- <tr ng-repeat="i in getNumber(row_length) track by $index" ng-init="sectionIndex = $index" >
-          
-            <td ng-repeat="j in getNumber(row_length) track by $index"
-             ng-click='oncheck(sectionIndex,$index);'>
-                <div  ng-show="gameField.setvalue_1">
-                  {{symbol_1}}
-                </div >
-                
-                <div ng-show="gameField.setvalue_2">
-                   {{symbol_2}}
-                </div>
-             </td>
-       </tr> -->
-       <tr ng-repeat="i in getNumber(row_length) track by $index" ng-init="sectionIndex = $index" >
-          
-            <td ng-repeat="j in getNumber(row_length) track by $index"
-             ng-click='oncheck(sectionIndex,$index);'>
-                <div  ng-show="gameFieldArray[i][j].setvalue_1">
-                  {{symbol_1}}
-                </div >
-                
-                <div ng-show="gameFieldArray[i][j].setvalue_2">
-                   {{symbol_2}}
-                </div>
-             </td>
-       </tr>
-   </table>
-   </div>
+<h1>Tic Tac Toe</h1>
+<div>
+  <form >
+    <label>How many rows and colums? </label>
+    <br />
+    <input type = 'number' id = "row_length" ng-model = "rowLength" ng-min = "3" ng-max ="12"/>
+    <br />
+    <label>Winning streak length?</label>
+    <br />
+    <input type = 'number' id = 'streakLength' ng-model = "streakLength" />
+    <br />
+    <br />
+    <button class = "btn-success btn span3" ng-click = 'startnewGame(rowLength);'>Start new game</button>
+  </form>
+</div>
+<div id = 'game_play'>
+  <table id = 'gameboard' style = "align:center;">
+    <caption id = 'message'></caption>
+    <tbody id = 'gameboard_rows'></tbody>
+    <tr ng-repeat = "i in convertToArray(rowLength) track by $index" ng-init="sectionIndex = $index" >
+      <td ng-repeat = "j in convertToArray(rowLength) track by $index" ng-click = "oncheck(sectionIndex,$index);">
+        <div ng-if = "gameFieldArray[sectionIndex][$index]">
+          {{gameFieldArray[sectionIndex][$index]}}
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
 
 
 
