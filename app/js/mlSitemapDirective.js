@@ -38,19 +38,19 @@
             document.getElementById('game_play').style.display = 'block';
           }
           $scope.oncheck = function (row, cell) {
-            if (playerOne) {
-            	currentPlayer = 'X';
-              playerOne = false;
-              playerTwo = true;
-              } else {
-              currentPlayer = 'O';
-              playerOne = true;
-              playerTwo = false;
-
-            }
-
-            $scope.gameFieldArray[row][cell] = currentPlayer;
-
+          	if($scope.gameFieldArray[row][cell] === false)
+          	{
+	            if (playerOne) {
+	            	currentPlayer = 'X';
+	              playerOne = false;
+	              playerTwo = true;
+	              } else {
+	              currentPlayer = 'O';
+	              playerOne = true;
+	              playerTwo = false;
+	            }
+	            $scope.gameFieldArray[row][cell] = currentPlayer;
+						}
           }
         }]
       }

@@ -18,7 +18,7 @@
     <caption id = 'message'></caption>
     <tbody id = 'gameboard_rows'></tbody>
     <tr ng-repeat = "i in convertToArray(rowLength) track by $index" ng-init="sectionIndex = $index" >
-      <td ng-repeat = "j in convertToArray(rowLength) track by $index" ng-click = "oncheck(sectionIndex,$index);">
+      <td ng-repeat = "j in convertToArray(rowLength) track by $index"   ng-click = "oncheck(sectionIndex,$index);"> 
         <div ng-if = "gameFieldArray[sectionIndex][$index]">
           {{gameFieldArray[sectionIndex][$index]}}
         </div>
