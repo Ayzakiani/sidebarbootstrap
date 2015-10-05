@@ -124,24 +124,29 @@
           		 return false;
          	 		} 
        	 	var checkDiagonal2 = function (){
-      //  	 			for(var j = $scope.rowLength; j >= 0; j--){
-      //  	 				var counterthree = 0;
-      //  	 				 for(var i = 0; i < $scope.rowLength; i++){
-						// 			 if(currentPlayer){
-						// 			 	if($scope.gameFieldArray[i][j + j] == currentPlayer){
-						// 			 	counterthree ++;
-						// 			 		if(counterthree === $scope.streakLength){
-						// 			 		message.innerHTML = currentPlayer + 'D2wins';
-						// 			 		return true;
-						// 			 		}
-						// 			 	} else{
-						// 			 		counterthree = 0;
-						// 			 	}		
-						// 		 }
-						// 		}
-						// 	}
+       	 			//for(var j = $scope.rowLength; j >= 0; j--){
+       	 				// var j =  $scope.rowLength;
+       	 			for(var a = 0; a < $scope.rowLength; a++){
+       	 				var counterthree = 0;
+       	 				for(var j = $scope.rowLength; j < 0; j--){
+       	 				 for(var i = 0; i < j; i++){
+									 if(currentPlayer){
+									 	if($scope.gameFieldArray[i][i + a] == currentPlayer){
+									 	counterthree ++;
+									 		if(counterthree === $scope.streakLength){
+									 		message.innerHTML = currentPlayer + 'D2wins';
+									 		return true;
+									 		}
+									 	} else{
+									 		counterthree = 0;
+									 	}		
+								 }
+								}
+							//	j--;
+							}
+						}
 						
-						// return false;
+						return false;
         	 }
 
 				  
