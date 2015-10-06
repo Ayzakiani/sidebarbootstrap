@@ -8,24 +8,18 @@
         templateUrl: '../app/Templates/mlSitemapDirective.html',
 
         controller: ['$scope', function ($scope) {
-
-         // $scope.streakLength = 3;
           $scope.rowLength = 3;      
           var currentPlayer = 'X';
           var playerOne = true;
           var playerTwo = false;
-
-
         
           $scope.convertToArray = function (num) {
             return new Array(num);
           }
           var create2dArray = function (num) {
             $scope.gameFieldArray = new Array(num);
-               for (var i = 0; i < num; i++) {
-                  $scope.gameFieldArray[i] = new Array(num);
-                }
             for (var i = 0; i < $scope.rowLength; i++) {
+                $scope.gameFieldArray[i] = new Array(num);
                 for (var j = 0; j < $scope.rowLength; j++) {
                   $scope.gameFieldArray[i][j] = false;
                 }
@@ -55,13 +49,12 @@
 	              playerTwo = false;
 	            }    	                                 
 						}
-          }
-              
+          }      
          				 var checkforWinner = function (){
 	                 	checkAllRows();
 	          				checkAllColumns();
 	          		  	checkDiagonal1();
-	          		  	checkDiagonal2(); 	
+	          		  	checkDiagonal2();
          				  }
           		  
           		  var checkAllRows = function(){
@@ -72,7 +65,7 @@
 			          		  	if($scope.gameFieldArray[i][j] == currentPlayer){
 			          		 		 	counter++;
 			         						if (counter === $scope.streakLength){
-			          		 		 		message.innerHTML = currentPlayer + ' rwins!';
+			          		 		 		message.innerHTML = currentPlayer + ' wins!';
 			          		 		 		return true;
 			          		 		 	} 	
 			          		 		} else {
@@ -83,8 +76,8 @@
 			          	}
 			          	return false;
 			          }	
-          		 	var checkAllColumns = function (){
-          		 	
+
+          		 	var checkAllColumns = function (){         		 	
           		 		for (var i = 0; i < $scope.rowLength; i++ ){ 
           		 			var counterOne = 0;	 
 			          		  for (var j = 0; j < $scope.rowLength; j++){
@@ -92,7 +85,7 @@
           		 					if($scope.gameFieldArray[j][i] == currentPlayer){
           		 					  counterOne++;
           		 		 				 if (counterOne === $scope.streakLength){
-          		 		 		        message.innerHTML = currentPlayer + ' cwins!';
+          		 		 		        message.innerHTML = currentPlayer + ' wins!';
           		 		 	        	return true;
           		 		 	        }
           		 		        } else {
@@ -112,7 +105,7 @@
           		 					if($scope.gameFieldArray[j][j] == currentPlayer){
           		 		  		counterTwo++;
           		 		  			if (counterTwo === $scope.streakLength){
-          		 		 					message.innerHTML = currentPlayer + ' d1wins!';
+          		 		 					message.innerHTML = currentPlayer + ' wins!';
           		 		 					return true;
           		 		 				}
           		 				} else {
@@ -122,33 +115,25 @@
           		 	 	}
           		 	}
           		 return false;
-         	 		} 
+         	 		}
+         	 		 
        	 	var checkDiagonal2 = function (){
-       	 			//for(var j = $scope.rowLength; j >= 0; j--){
-       	 				// var j =  $scope.rowLength;
-       	 			for(var a = 0; a < $scope.rowLength; a++){
-       	 				var counterthree = 0;
-       	 				for(var j = $scope.rowLength; j < 0; j--){
-       	 				 for(var i = 0; i < j; i++){
-									 if(currentPlayer){
-									 	if($scope.gameFieldArray[i][i + a] == currentPlayer){
-									 	counterthree ++;
-									 		if(counterthree === $scope.streakLength){
-									 		message.innerHTML = currentPlayer + 'D2wins';
-									 		return true;
-									 		}
-									 	} else{
-									 		counterthree = 0;
-									 	}		
-								 }
+       	 		var row = 0;
+       	 		var counterthree = 0;
+       	 		for(var a = $scope.rowLength - 1; a >= 0; a--){
+								if(currentPlayer) {
+									if($scope.gameFieldArray[row][a] == currentPlayer) {
+										counterthree++;
+										if (counterthree === $scope.streakLength) {
+											message.innerHTML = currentPlayer + ' wins!';
+										 	return true;
+										}
+									}
 								}
-							//	j--;
-							}
-						}
-						
-						return false;
-        	 }
-
+								row++;
+					}
+					return false;
+				}
 				  
         }]
       }
