@@ -2,7 +2,9 @@
   angular.module('mylinkApp')
     .directive('mlSitemap', function() {
       return {
-        scope: {},
+        scope: {
+        	
+        },
         templateUrl: '../app/Templates/mlSitemapDirective.html',
         controller: ['$scope', function ($scope) {
         	$scope.isClickEnable = true;
@@ -26,11 +28,11 @@
           	$scope.hideForm = true;
           	$scope.buttonTwo = true;
           	$scope.tableHide = false;
-         		 $scope.convertToArray = function (num) {
+         		$scope.convertToArray = function (num) {
            	 return new Array(num);
-           	 }  
-          $scope.message = '' ;      
-          create2dArray(num);
+           	}  
+          	$scope.message = '' ;      
+          	create2dArray(num);
           }
           $scope.startGame = function (){
           	$scope.hideForm = false;
@@ -101,24 +103,24 @@
 			      }
 			      return false;
 			    }	    	 		 
-       	var checkDiagonal2 = function (){
-       	var row = 0;
-       	var counterthree = 0;
-       	 	for(var a = $scope.rowLength - 1; a >= 0; a--){
-						if(currentPlayer) {
-							if($scope.gameFieldArray[row][a] == currentPlayer) {
-							counterthree++;
-								if (counterthree === $scope.streakLength) {
-								$scope.message = currentPlayer + ' Right Diagonal wins!';
-								$scope.isClickEnable = false;
-								return true;
+	       	var checkDiagonal2 = function (){
+	       	var row = 0;
+	       	var counterthree = 0;
+	       	 	for(var a = $scope.rowLength - 1; a >= 0; a--){
+							if(currentPlayer) {
+								if($scope.gameFieldArray[row][a] == currentPlayer) {
+								counterthree++;
+									if (counterthree === $scope.streakLength) {
+									$scope.message = currentPlayer + ' Right Diagonal wins!';
+									$scope.isClickEnable = false;
+									return true;
+									}
 								}
-							}
-						}	
-						row++;
-					}
-					return false;
-				}			  
+							}	
+							row++;
+						}
+						return false;
+					}			  
         }]
       }
     });
