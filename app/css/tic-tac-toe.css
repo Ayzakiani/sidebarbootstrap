@@ -4,11 +4,12 @@
 }
 
 table {
-  border: 1px solid black;
   border-collapse: collapse;
-
-
+ display: inline-block;
+ 
 }
+
+
 
 td {
   width: 75px;
@@ -23,7 +24,9 @@ td {
   position: relative ;
   
 }
-
+caption {
+  color: #47D147;
+}
 td:after {
   display: block;
   text-shadow: none;
@@ -41,9 +44,12 @@ td:after {
   font-family: monospace;
   font-size: 150%;
 }
-
-
 .winner {
-  background: #EC71EE;
+  background: limegreen;
+}
+
+
+.game_Play {
+  display: block;
 }
 /*******tic-tac-toe END******/
