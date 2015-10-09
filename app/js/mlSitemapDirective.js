@@ -14,8 +14,9 @@
           var playerOne = true;
           var playerTwo = false;
           $scope.buttonTwo = false;
-          
-          var create2dArray = function (num) {
+
+ 
+         var create2dArray = function (num) {
           $scope.gameFieldArray = new Array(num);
             for (var i = 0; i < $scope.rowLength; i++) {
             $scope.gameFieldArray[i] = new Array(num);
@@ -41,7 +42,6 @@
           	$scope.tableHide = true;
           }
           $scope.oncheck = function (row, cell) {
-          	console.log($scope.isClickEnable);
           	if($scope.gameFieldArray[row][cell] === false){ 
           	$scope.gameFieldArray[row][cell] = currentPlayer;
 						checkforWinner();
@@ -70,7 +70,6 @@
 			          		$scope.message = currentPlayer + ' Row wins!';
 						        $scope.isClickEnable = false;
 						        return true;
-
 			          		} 	
 			          	} else {
 			          	counter = 0;

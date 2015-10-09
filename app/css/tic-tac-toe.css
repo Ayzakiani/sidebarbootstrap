@@ -9,7 +9,9 @@ table {
  
 }
 
-
+input.ng-invalid {
+  border: 1px solid red;
+}
 
 td {
   width: 75px;
@@ -49,6 +51,9 @@ td:after {
 }
 
 
+.gameerror: {
+  border: 1px solid red !important;
+}
 .game_Play {
   display: block;
 }
