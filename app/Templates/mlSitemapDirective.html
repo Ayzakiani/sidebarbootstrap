@@ -1,20 +1,29 @@
-<div class="wrap">
+<div class="text-center">
 <h1>Tic Tac Toe</h1>
 <div>
-  <form ng-hide = "hideForm">
+  <form name = "gameForm"  ng-hide = "hideForm"  novalidate>
+
+    <div class="form-group" ng-class="{'has-error': gameForm.rowColumn.$touched && gameForm.rowColumn.$invalid}">
     <label>How many rows and colums? </label>
     <br />
-    <input type = "number" ng-model = "rowLength" ng-min = "3" ng-max ="12"/>
+    <input type = "number" ng-model = "rowLength" ng-min = "3" ng-max ="12" name="rowColumn" />
     <br />
-    <label>Winning streak length?</label>
-    <br/>
-    <input type = "number" ng-model = "streakLength" />
-    <br/>
-    <br/>
-     <button  class = "btn-success btn span3"  ng-click = "startnewGame(rowLength);">Start new game</button> 
-  </form>
+    </div>
+
+    <div  class="form-group" ng-class="{'has-error': gameForm.streak.$touched && gameForm.streak.$invalid}">
+      <label>Winning streak length?</label>
+      <br/>
+      <input type = "number" ng-model = "streakLength" ng-min = "3" ng-max ="12" name="streak" required/>
+      <br/>
+      <br/>
+    </div>
+
+     <button  class = "btn-success btn span3" ng-disabled="gameForm.$invalid"
+              ng-click = "startnewGame(rowLength);">Start new game</button> 
+
+  </form >
    <br/>
-    <button  ng-show= "buttonTwo" class = "btn-success btn span3"  ng-click = "startGame();">Start new game</button> 
+    <button ng-show= "buttonTwo" class = "btn-success btn span3"  ng-click = "startGame();">Start new game</button> 
 </div>
 <div>
   <table ng-hide = "tableHide">
@@ -22,7 +31,8 @@
     <br/>
     <tr ng-repeat = "i in convertToArray(rowLength) track by $index" ng-init="sectionIndex = $index" >
       <td ng-repeat = "j in convertToArray(rowLength) track by $index" 
-      ng-click = "!isClickEnable || oncheck(sectionIndex,$index);">   <div ng-if = "gameFieldArray[sectionIndex][$index]">
+      ng-click = "!isClickEnable || oncheck(sectionIndex,$index);">  
+       <div ng-if = "gameFieldArray[sectionIndex][$index]">
          {{gameFieldArray[sectionIndex][$index]}}
          </div>
       </td>

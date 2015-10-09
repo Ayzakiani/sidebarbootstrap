@@ -15,7 +15,6 @@
                           Username: '',
                           email: '',
                           password: ''
-
                       };
                       $scope.submit = function() {
 
