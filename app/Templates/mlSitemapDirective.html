@@ -1,16 +1,16 @@
 <div class="text-center">
 <h1>Tic Tac Toe</h1>
 <div>
-  <form name = "gameForm"  ng-hide = "hideForm"  novalidate>
+  <form name = "gameForm"  ng-hide = "hideForm">
 
-    <div class="form-group" ng-class="{'has-error': gameForm.rowColumn.$touched && gameForm.rowColumn.$invalid}">
+    <div>
     <label>How many rows and colums? </label>
     <br />
     <input type = "number" ng-model = "rowLength" ng-min = "3" ng-max ="12" name="rowColumn" />
     <br />
     </div>
 
-    <div  class="form-group" ng-class="{'has-error': gameForm.streak.$touched && gameForm.streak.$invalid}">
+    <div>
       <label>Winning streak length?</label>
       <br/>
       <input type = "number" ng-model = "streakLength" ng-min = "3" ng-max ="12" name="streak" required/>
@@ -20,11 +20,11 @@
 
      <button  class = "btn-success btn span3" ng-disabled="gameForm.$invalid"
               ng-click = "startnewGame(rowLength);">Start new game</button> 
-
   </form >
    <br/>
     <button ng-show= "buttonTwo" class = "btn-success btn span3"  ng-click = "startGame();">Start new game</button> 
 </div>
+
 <div>
   <table ng-hide = "tableHide">
     <caption>{{message}}</caption>
