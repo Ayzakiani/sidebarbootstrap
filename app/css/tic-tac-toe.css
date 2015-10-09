@@ -9,7 +9,7 @@ table {
  
 }
 
-input.ng-invalid {
+.validity.ng-invalid {
   border: 1px solid red;
 }
 
